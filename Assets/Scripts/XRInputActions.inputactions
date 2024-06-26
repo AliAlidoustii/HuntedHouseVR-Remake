@@ -1,0 +1,34 @@
+{
+    "name": "XRInputActions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "9915dbc9-ab5a-4236-9691-2e91db0de02e",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "9c3941ad-0757-4d46-83b1-269f31447493",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e370929f-76ad-4bec-89df-67f41101b656",
+                    "path": "<XRController>{RightHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class VRConnectionManager : MonoBehaviourPunCallbacks
 {
-    public TMP_Text connectionStatusText;
+    [SerializeField] private TMP_Text connectionStatus;
+    [SerializeField] private string roomName = "Room1";
+    [SerializeField] private GameObject playerPrefab;
+
+    private enum ConnectionState { Disconnected, Connecting, Connected, InLobby, InRoom }
+    private ConnectionState currentState = ConnectionState.Disconnected;
 
     void Start()
     {
@@ -13,26 +18,34 @@ public class VRConnectionManager : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        currentState = ConnectionState.Connected;
+       // connectionStatus.text = "Connected to master";
         PhotonNetwork.JoinLobby();
     }
 
     public override void OnJoinedLobby()
     {
-        PhotonNetwork.JoinOrCreateRoom("Room1", new Photon.Realtime.RoomOptions(), Photon.Realtime.TypedLobby.Default);
+        currentState = ConnectionState.InLobby;
+       // connectionStatus.text = "Joined lobby";
+        PhotonNetwork.JoinOrCreateRoom(roomName, new Photon.Realtime.RoomOptions(), Photon.Realtime.TypedLobby.Default);
     }
 
     public override void OnJoinedRoom()
     {
+        currentState = ConnectionState.InRoom;
+       // connectionStatus.text = "Joined room";
         SpawnPlayer();
     }
 
     public override void OnDisconnected(Photon.Realtime.DisconnectCause cause)
     {
+        currentState = ConnectionState.Disconnected;
+       // connectionStatus.text = "Disconnected";
     }
 
-    void SpawnPlayer()
-{
-    Vector3 spawnPosition = new Vector3(0, 0.7f, 0);
-    PhotonNetwork.Instantiate("VRPlayerPrefab", spawnPosition, Quaternion.identity);
-}
+    private void SpawnPlayer()
+    {
+        Vector3 spawnPosition = new Vector3(0, 0.7f, 0);
+        PhotonNetwork.Instantiate(playerPrefab.name, spawnPosition, Quaternion.identity);
+    }
 }
