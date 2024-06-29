@@ -339,6 +339,54 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 782628377}
   m_SourcePrefab: {fileID: 100100000, guid: 3fec16cf85771bf4799863053f54b925, type: 3}
+--- !u!1 &2018076552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2018076554}
+  - component: {fileID: 2018076553}
+  m_Layer: 0
+  m_Name: CollectableManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2018076553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018076552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd0b9e715e9f49e8af24b8274c3b873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 6502900501295917430, guid: ebb32488bc15e4ba8aa8a2856ac3c915, type: 3}
+  gameEnderPrefab: {fileID: 6677308651845793667, guid: 2586fdc42fe43427083e64c297f41640, type: 3}
+  bulletCount: 3
+  gameEnderCount: 3
+--- !u!4 &2018076554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018076552}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -346,3 +394,4 @@ SceneRoots:
   - {fileID: 267346266}
   - {fileID: 1533713391}
   - {fileID: 852017836}
+  - {fileID: 2018076554}
